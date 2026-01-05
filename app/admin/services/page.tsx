@@ -12,7 +12,7 @@ interface Package {
   name: string
   description: string
   bulletPoints: string[]
-  badge?: string
+  serviceId: number
 }
 
 interface FeatureCardData {

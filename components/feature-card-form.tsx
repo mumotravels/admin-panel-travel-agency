@@ -106,7 +106,13 @@ export function FeatureCardForm({ onSubmit, isLoading = false, initialData }: Fe
                 <Input
                     type="text"
                     value={formData.url}
-                    onChange={(e) => setFormData({ ...formData, url: e.target.value })}
+                    onChange={(e) => {
+                        const formattedValue = e.target.value
+                            .toLowerCase()
+                            .replace(/\s/g, '-');
+
+                        setFormData({ ...formData, url: formattedValue });
+                    }}
                     placeholder="Service URL"
                     className="bg-input text-foreground"
                 />
