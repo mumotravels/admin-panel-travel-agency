@@ -21,26 +21,18 @@ export function PackageCard({ id, image, name, description, bulletPoints, badge,
                 {/* Image Container */}
                 <div className="relative w-full h-48 overflow-hidden bg-muted">
                     <img src={image || "/placeholder.svg"} alt={name} className="w-full h-full object-cover" />
-                    {badge && (
-                        <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border">
-                            <span className="text-sm font-medium text-foreground flex items-center gap-2">
-                                <Clock className="w-4 h-4" />
-                                {badge}
-                            </span>
-                        </div>
-                    )}
                 </div>
 
                 {/* Content Container */}
-                <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-foreground">{name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{description}</p>
+                <div className="px-2">
+                    <h3 className="text-lg font-bold mb-1 text-foreground">{name}</h3>
+                    <p className="text-sm text-muted-foreground mb-1">{description}</p>
 
                     {/* Bullet Points */}
-                    <ul className="space-y-3">
+                    <ul className="space-y-1">
                         {bulletPoints.map((point, index) => (
-                            <li key={index} className="flex items-start gap-3">
-                                <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                            <li key={index} className="flex items-start gap-1">
+                                <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                                 <span className="text-sm text-muted-foreground">{point}</span>
                             </li>
                         ))}

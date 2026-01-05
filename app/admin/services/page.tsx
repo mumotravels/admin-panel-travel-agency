@@ -89,20 +89,21 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background py-12 px-4">
+    <main className="min-h-screen bg-background  px-2">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-2 text-foreground">Services</h1>
-          <p className="text-muted-foreground text-lg">Manage and showcase your services</p>
-        </div>
+        <div className="flex justify-between gap-12">
+          <div className="mb-2">
+            <h1 className="text-2xl font-bold mb-2 text-foreground">Services</h1>
+          </div>
 
-        <div className="mb-12 flex justify-start">
-          <ServicesDialog
-            onServiceAdded={fetchServices}
-            editingId={editingId}
-            editingCard={editingId ? cards.find((c) => c.id === editingId) : undefined}
-            onEditComplete={handleEditComplete}
-          />
+          <div className="mb-2 flex justify-start">
+            <ServicesDialog
+              onServiceAdded={fetchServices}
+              editingId={editingId}
+              editingCard={editingId ? cards.find((c) => c.id === editingId) : undefined}
+              onEditComplete={handleEditComplete}
+            />
+          </div>
         </div>
 
         {loading ? (
@@ -111,7 +112,6 @@ export default function Home() {
           </div>
         ) : cards.length > 0 ? (
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-foreground">Available Services</h2>
             <div className="grid grid-cols-1 gap-6">
               {cards.map((card) => (
                 <FeatureCard
