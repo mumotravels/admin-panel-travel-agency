@@ -120,6 +120,27 @@ export const seoPages = pgTable("seo_pages", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export const metadata = pgTable("metadata", {
+  id: serial("id").primaryKey(),
+  key: text("key").unique().notNull(),
+  value: text("value"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+})
+
+// Keywords table
+export const keywords = pgTable("keywords", {
+  id: serial("id").primaryKey(),
+  keyword: text("keyword").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+})
+// Types definitions
+export type Metadata = InferSelectModel<typeof metadata>
+export type NewMetadata = InferInsertModel<typeof metadata>
+
+export type Keyword = InferSelectModel<typeof keywords>
+export type NewKeyword = InferInsertModel<typeof keywords>
+
 export const servicesRelations = relations(services, ({ many }) => ({
   packages: many(packages)
 }));
